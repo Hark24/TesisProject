@@ -9,32 +9,20 @@ public class GameMenuScene : MonoBehaviour {
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
 		
 		// Displays Buttons
-		var tutorialButton = GUI.Button (new Rect (Screen.width * .4f, Screen.height * .45f, Screen.width * .25f, Screen.height * .05f), "Tutorial");
-		var newGameButton = GUI.Button (new Rect (Screen.width * .4f, Screen.height * .55f, Screen.width * .25f, Screen.height * .05f), "Nuevo Juego");
-		var loadGameButton = GUI.Button (new Rect (Screen.width * .4f, Screen.height * .65f, Screen.width * .25f, Screen.height * .05f), "Continuar Juego");
-		var backButton = GUI.Button(new Rect(Screen.height*.01f, Screen.height*.01f, Screen.width*.1f, Screen.height*.05f), "Regresar");
-
-		if (tutorialButton) {
+		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .45f, Screen.width * .25f, Screen.height * .05f), "Tutorial")) {
 			Application.LoadLevel(7);
 		}
 
-		if (newGameButton) {
+		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .55f, Screen.width * .25f, Screen.height * .05f), "Nuevo Juego")) {
 			Application.LoadLevel(8);
 		}
 
-		if (loadGameButton) {
-			if(haveSaveData()){
-				Application.LoadLevel(9);
-			}
+		if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .65f, Screen.width * .25f, Screen.height * .05f), "Continuar Juego")) {
+			Application.LoadLevel(9);
 		}
-		GUI.enabled = true;
 
-		if (backButton){
+		if (GUI.Button(new Rect(Screen.height*.01f, Screen.height*.01f, Screen.width*.1f, Screen.height*.05f), "Regresar")){
 			Application.LoadLevel(0);
 		}
-	}
-
-	bool haveSaveData(){
-		return false;
 	}
 }
